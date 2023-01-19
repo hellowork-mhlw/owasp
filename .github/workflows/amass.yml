@@ -19,5 +19,4 @@ jobs:
         run: |
           sudo snap install amass
           wget https://gist.githubusercontent.com/hellowork-mhlw/187e078b3ac4589be11ddf8d040d8ab9/raw/b315ad4dc57d3a4f208fe21baf85df50d0fa345d/domains.txt
-          for domain in `cat domains.txt`; do echo "#$domain#"; done
-          time amass enum -passive -d owasp.org -src
+          for domain in `cat domains.txt`; do grep -n $domain domains.txt; time amass enum -passive -d $domain -src; done
