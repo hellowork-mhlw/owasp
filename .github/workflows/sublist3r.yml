@@ -15,7 +15,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Runs a set of commands using the runners shell
-      - name: Amass
+      - name: Sublist3r
         run: |
           sudo snap install amass
           wget https://gist.githubusercontent.com/hellowork-mhlw/187e078b3ac4589be11ddf8d040d8ab9/raw/b315ad4dc57d3a4f208fe21baf85df50d0fa345d/domains.txt
