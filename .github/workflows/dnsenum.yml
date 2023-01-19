@@ -17,6 +17,6 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Dnsenum
         run: |
-          sudo snap install dnsenum
+          sudo apt install dnsenum
           wget https://gist.githubusercontent.com/hellowork-mhlw/187e078b3ac4589be11ddf8d040d8ab9/raw/b315ad4dc57d3a4f208fe21baf85df50d0fa345d/domains.txt
           for domain in `cat domains.txt`; do grep -n $domain domains.txt; time dnsenum $domain; done
