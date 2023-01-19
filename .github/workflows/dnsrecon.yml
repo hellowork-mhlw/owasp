@@ -19,4 +19,4 @@ jobs:
         run: |
           sudo apt install dnsrecon
           wget https://gist.githubusercontent.com/hellowork-mhlw/187e078b3ac4589be11ddf8d040d8ab9/raw/b315ad4dc57d3a4f208fe21baf85df50d0fa345d/domains.txt
-          dnsrecon -d owasp.org
+          for domain in `cat domains.txt`; do grep -n $domain domains.txt; time dnsrecon -d $domain; done
