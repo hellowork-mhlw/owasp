@@ -1,0 +1,28 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Sublist3r
+
+# Controls when the workflow will run
+on: workflow_dispatch
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  sublist3r:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Runs a set of commands using the runners shell
+      - name: Amass
+        run: |
+          sudo snap install amass
+          wget https://gist.githubusercontent.com/hellowork-mhlw/187e078b3ac4589be11ddf8d040d8ab9/raw/b315ad4dc57d3a4f208fe21baf85df50d0fa345d/domains.txt
+          git clone https://github.com/aboul3la/Sublist3r
+          cd Sublist3r
+          pip install -r requirements.txt
+          time python sublist3r.py -d owasp.org
+          time python sublist3r.py -v -d owasp.org
+          time python sublist3r.py -b -d owasp.org
+          time python sublist3r.py -e google,yahoo,virustotal -d owasp.org
