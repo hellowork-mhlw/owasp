@@ -31,4 +31,4 @@ jobs:
       - name: Snap
         run: |
           sudo snap install amass
-          amass enum -passive -d owasp.org -src
+          time amass enum -passive -d owasp.org -src
